@@ -11,10 +11,11 @@ import (
 
 func main() {
 	opts := append(chromedp.DefaultExecAllocatorOptions[:],
-		chromedp.Flag("headless", true),
-		chromedp.Flag("disable-gpu", false),
+		chromedp.Flag("headless", false),
+		chromedp.Flag("disable-gpu", false), // The --disable-gpu option is a temporary workaround for a few bugs
 		chromedp.Flag("enable-automation", false),
-		chromedp.Flag("disable-extensions", false),
+		chromedp.Flag("disable-extensions", true),
+		chromedp.Flag("incognito", true),
 	)
 
 	// Create a new ExecAllocator to customize how Chrome will be started
